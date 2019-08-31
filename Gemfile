@@ -7,6 +7,7 @@ gem 'rails', '~> 5.2.3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
+gem "font-awesome-rails"
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
