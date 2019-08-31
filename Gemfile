@@ -9,6 +9,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
 gem 'devise', '~> 4.7'
+gem 'draper', '~> 3.1'
 gem 'font-awesome-rails'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
