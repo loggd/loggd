@@ -10,4 +10,8 @@ module ApplicationHelper
       javascript_include_tag(controller_name, opts)
     end
   end
+
+  def tab(value)
+    @page_tab = value
+  end
 end
