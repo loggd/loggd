@@ -14,4 +14,17 @@ module ApplicationHelper
   def tab(value)
     @page_tab = value
   end
+
+  def alert_class(key)
+    "alert alert-#{alert_map[key.to_sym]}"
+  end
+
+  private
+
+    def alert_map
+      {
+        alert: 'danger',
+        notice: 'primary'
+      }
+    end
 end
