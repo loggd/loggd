@@ -2,6 +2,20 @@
 @import 'bootstrap';
 @import 'font-awesome';
 
+html,
+body {
+  height: 100%;
+}
+
 section#navbar {
   margin-bottom: 1rem;
+}
+
+section#wrapper {
+  min-height: 100%;
+  margin-bottom: -50px;
+}
+
+#footer {
+  height: 50px;
 }

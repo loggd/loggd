@@ -12,10 +12,12 @@
   </head>
 
   <body>
-    <%= render 'layouts/navbar' %>
-    <section class="container" id="content">
-      <%= render 'layouts/alerts' %>
-      <%= yield %>
+    <section id="wrapper">
+      <%= render 'layouts/navbar' %>
+      <section class="container" id="content">
+        <%= render 'layouts/alerts' %>
+        <%= yield %>
+      </section>
     </section>
     <%= render 'layouts/footer' %>
   </body>
