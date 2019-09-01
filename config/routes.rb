@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
-  devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#show'
-
-  resource :dashboard, only: [:show]
+  devise_for :users
   resources :journals do
     resources :entries
+    member do
+      post :unlock
+      get :locked
+    end
   end
 end

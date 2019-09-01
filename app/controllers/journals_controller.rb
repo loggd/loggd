@@ -1,5 +1,5 @@
 class JournalsController < SecureApplicationController
-  before_action :set_journal, only: [:show, :edit, :update, :destroy]
+  before_action :set_journal, only: [:show, :edit, :update, :destroy, :locked, :unlock]
 
   # GET /journals
   # GET /journals.json
@@ -61,7 +61,23 @@ class JournalsController < SecureApplicationController
     end
   end
 
+  def locked
+  end
+
+  def unlock
+    respond_to do |format|
+      if @journal.authenticate(params[:journal][:password])
+        format.html { redirect_to @journal, notice: 'Journal was successfully unlocked.' }
+        format.json { render :show, status: :ok, location: @journal}
+      else
+        format.html { redirect_to journals_path, alert: "#{@journal.name} could not be unlocked" }
+        format.json { render json: @journal.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
+
     # Use callbacks to share common setup or constraints between actions.
     def set_journal
       @journal = Journal.find(params[:id])

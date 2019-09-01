@@ -34,6 +34,7 @@ class Ability
     if user.present?
       can :create, Journal
       can :manage, Journal, user_id: user.id
+      can :read, Journal, public: true
     end
   end
 end
