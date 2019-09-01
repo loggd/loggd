@@ -37,6 +37,8 @@ class Ability
     if user.present?
       can :create, Journal
       can :manage, Journal, user_id: user.id
+      can :create, Entry, journal: { user_id: user.id }
+      can :manage, Entry, journal: { user_id: user.id }
     end
   end
 end

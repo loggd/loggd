@@ -1,10 +1,11 @@
 class EntriesController < ApplicationController
   before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_journal
 
   # GET /entries
   # GET /entries.json
   def index
-    @entries = Entry.all
+    @entries = Entry.accessible_by(current_ability, :manage).decorate
   end
 
   # GET /entries/1
@@ -14,7 +15,7 @@ class EntriesController < ApplicationController
 
   # GET /entries/new
   def new
-    @entry = Entry.new
+    @entry = @journal.entries.build
   end
 
   # GET /entries/1/edit
@@ -24,11 +25,11 @@ class EntriesController < ApplicationController
   # POST /entries
   # POST /entries.json
   def create
-    @entry = Entry.new(entry_params)
+    @entry = @journal.entries.build(entry_params)
 
     respond_to do |format|
-      if @entry.save
-        format.html { redirect_to @entry, notice: 'Entry was successfully created.' }
+      if @entry.save!
+        format.html { redirect_to journal_entry_path(@journal, @entry), notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class EntriesController < ApplicationController
   def update
     respond_to do |format|
       if @entry.update(entry_params)
-        format.html { redirect_to @entry, notice: 'Entry was successfully updated.' }
+        format.html { redirect_to journal_entry_path(@journal, @entry), notice: 'Entry was successfully updated.' }
         format.json { render :show, status: :ok, location: @entry }
       else
         format.html { render :edit }
@@ -56,7 +57,7 @@ class EntriesController < ApplicationController
   def destroy
     @entry.destroy
     respond_to do |format|
-      format.html { redirect_to entries_url, notice: 'Entry was successfully destroyed.' }
+      format.html { redirect_to journal_entries_path, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,6 +70,10 @@ class EntriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def entry_params
-      params.fetch(:entry, {})
+      params.require(:entry).permit(:title, :body)
+    end
+
+    def set_journal
+      @journal = Journal.find(params[:journal_id])
     end
 end
