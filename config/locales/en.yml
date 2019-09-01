@@ -30,4 +30,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  profile: Profile
+  logout: Log out
+  login: Log in
+  sign_up: Sign up
+  home:
+    tagline: a privacy-first journal
+    lead: |
+      Who wants to digitally journal on the web, but also know that only you can read the journals?
+      Yes, even we can't ready your entries. And for free? No way. Loggd offers AES-256 encryption for all
+      journals, so you can write where ever you are and not worry about your data. We're also open source, so you
+      can verify this yourself.
+    offer: What do we offer?
+    privacy: Privacy
+    privacy_tagline: |
+      All journal entries are encrypted. This means only you can decrypt them unless you make the journal public.
+    simplicity: Simplicity
+    simplicity_tagline: |
+      There are no frills here. No markdown, no convoluted journal entry management. Secure your journals. Write.
+    call_to_action: Get started creating journals that only you can manage.

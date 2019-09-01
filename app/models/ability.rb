@@ -31,10 +31,12 @@ class Ability
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/wiki/Defining-Abilities
 
+
+    can :read, Journal, public: true
+
     if user.present?
       can :create, Journal
       can :manage, Journal, user_id: user.id
-      can :read, Journal, public: true
     end
   end
 end

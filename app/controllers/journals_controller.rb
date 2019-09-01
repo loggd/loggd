@@ -1,4 +1,4 @@
-class JournalsController < SecureApplicationController
+class JournalsController < ApplicationController
   before_action :set_journal, only: [:show, :edit, :update, :destroy, :locked, :unlock]
 
   # GET /journals

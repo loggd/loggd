@@ -7,4 +7,5 @@ class Journal < ApplicationRecord
 
   scope :recent_entries, -> { order(create_at: :desc) }
   scope :alphabetical, -> { order(name: :asc) }
+  scope :public_books, -> { where(public: true) }
 end
