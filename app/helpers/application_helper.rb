@@ -24,7 +24,7 @@ module ApplicationHelper
     def alert_map
       {
         alert: 'danger',
-        notice: 'primary'
+        notice: 'success'
       }
     end
 end

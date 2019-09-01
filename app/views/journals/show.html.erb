@@ -1,0 +1,9 @@
+<%= link_to 'Edit', edit_journal_path(@journal) %> |
+<%= link_to 'Back', journals_path %>
+
+<h1><%= @journal.name %></h1>
+<p><%= @journal.description %></p>
+<h2>Entries</h2>
+<% @journal.entries do |entry| %>
+  <%= entry.card_view %>
+<% end %>

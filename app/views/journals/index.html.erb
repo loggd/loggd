@@ -1,0 +1,13 @@
+<% tab 'journals' %>
+
+
+<h1>Journals</h1>
+<%= link_to 'New Journal', new_journal_path %>
+
+<div class="card-columns">
+  <% @journals.each do |journal| %>
+    <%= journal.card_view %>
+  <% end %>
+</div>
+
+<div class="text-danger">* Public journals</div>

@@ -4,4 +4,7 @@ Rails.application.routes.draw do
   root 'home#show'
 
   resource :dashboard, only: [:show]
+  resources :journals do
+    resources :entries
+  end
 end
