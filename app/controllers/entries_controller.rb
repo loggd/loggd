@@ -28,7 +28,10 @@ class EntriesController < ApplicationController
     @entry = @journal.entries.build(entry_params)
 
     respond_to do |format|
-      if @journal.authenticate(params[:entry][:password]) && @entry.encrypt!(params[:entry][:password]) && @entry.save!
+      if @journal.public && @entry.save!
+        format.html { redirect_to journal_entry_path(@journal, @entry), notice: 'Entry was successfully created.' }
+        format.json { render :show, status: :created, location: @entry }
+      elsif @journal.authenticate(params[:entry][:password]) && @entry.encrypt!(params[:entry][:password]) && @entry.save!
         format.html { redirect_to journal_entry_path(@journal, @entry), notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else

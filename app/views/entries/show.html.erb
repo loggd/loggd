@@ -1,1 +1,6 @@
-<%= render 'locked' %>
+<% if @journal.public %>
+  <%= render 'entry' %>
+<% else %>
+  <%= render 'locked' %>
+<% end %>
+
