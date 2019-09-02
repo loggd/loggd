@@ -8,6 +8,12 @@
 <% unless @entry.created_at == @entry.updated_at %>
   <p class="text-muted">Edited <%= distance_of_time_in_words(@entry.updated_at, Time.zone.now) %> ago</p>
 <% end %>
+
 <p>
-  <%= @entry.decrypted_body %>
+  <% if @entry.journal.public %>
+    <%= @entry.body %>
+  <% else %>
+    asdf
+    <%= @entry.decrypted_body %>
+  <% end %>
 </p>
