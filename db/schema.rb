@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_01_022553) do
+ActiveRecord::Schema.define(version: 2019_09_02_170038) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,10 @@ ActiveRecord::Schema.define(version: 2019_09_01_022553) do
   create_table "entries", force: :cascade do |t|
     t.bigint "journal_id"
     t.string "title"
-    t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.binary "body"
+    t.binary "iv"
     t.index ["journal_id"], name: "index_entries_on_journal_id"
   end
 

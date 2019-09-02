@@ -1,0 +1,13 @@
+<% if can? :manage, @entry %>
+<!--  <%#= link_to 'Edit', edit_journal_entry_path(@journal, @entry) %> |-->
+  <%= link_to 'Back', journal_path(@entry.journal) %>
+<% end %>
+
+<h1><%= @entry.title %></h1>
+<p class="text-muted">Created <%= distance_of_time_in_words(@entry.created_at, Time.zone.now) %> ago</p>
+<% unless @entry.created_at == @entry.updated_at %>
+  <p class="text-muted">Edited <%= distance_of_time_in_words(@entry.updated_at, Time.zone.now) %> ago</p>
+<% end %>
+<p>
+  <%= @entry.decrypted_body %>
+</p>

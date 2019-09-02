@@ -1,5 +1,3 @@
 <h1>Entries</h1>
 
-<% if can? :create, Entry %>
-  <%= link_to 'New Entry', new_journal_entry_path %>
-<% end %>
+<%= render 'list', journal: @journal %>

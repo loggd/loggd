@@ -1,5 +1,5 @@
 class EntriesController < ApplicationController
-  before_action :set_entry, only: [:show, :edit, :update, :destroy]
+  before_action :set_entry, only: [:show, :edit, :update, :destroy, :decrypted]
   before_action :set_journal
 
   # GET /entries
@@ -28,7 +28,7 @@ class EntriesController < ApplicationController
     @entry = @journal.entries.build(entry_params)
 
     respond_to do |format|
-      if @entry.save!
+      if @journal.authenticate(params[:entry][:password]) && @entry.encrypt!(params[:entry][:password]) && @entry.save!
         format.html { redirect_to journal_entry_path(@journal, @entry), notice: 'Entry was successfully created.' }
         format.json { render :show, status: :created, location: @entry }
       else
@@ -59,6 +59,15 @@ class EntriesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to journal_entries_path, notice: 'Entry was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def decrypted
+    respond_to do |format|
+      if @journal.authenticate(params[:journal][:password])
+        @entry.decrypt!(params[:journal][:password])
+        format.html { render :decrypted, entry: @entry }
+      end
     end
   end
 

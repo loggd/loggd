@@ -3,7 +3,12 @@ Rails.application.routes.draw do
   root 'home#show'
   devise_for :users
   resources :journals do
-    resources :entries
+    resources :entries do
+      member do
+        post :decrypted
+        get '/decrypted', to: redirect { |params| "/journals/#{params[:journal_id]}/entries/#{params[:id]}" }
+      end
+    end
     member do
       post :unlock
       get :locked

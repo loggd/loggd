@@ -1,0 +1,9 @@
+<% if can? :create, Entry %>
+  <%= link_to 'New Entry', new_journal_entry_path(journal.id) %>
+<% end %>
+
+<div class="card-columns">
+  <% journal.entries.latest.decorate.each do |entry| %>
+    <%= entry.card_view %>
+  <% end %>
+</div>

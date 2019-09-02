@@ -3,11 +3,12 @@ class EntryDecorator < ApplicationDecorator
 
   def card_view
     h.content_tag :div, class: 'card' do
-      h.content_tag(:div, class: 'card-body') do
-        h.content_tag(:h5, object.name, class: 'card-title') +
-          h.content_tag(:p, object.description, class: 'card-text') +
-          h.link_to('Read', h.journal_entry_path(object), class: 'btn btn-primary')
-      end
+      h.image_tag('paper.png', class: 'img-fluid') +
+        h.content_tag(:div, class: 'card-body') do
+          h.content_tag(:h5, object.title, class: 'card-title') +
+            h.content_tag(:p, "created #{h.distance_of_time_in_words(object.created_at, Time.zone.now)} ago", class: 'card-text text-muted') +
+            h.link_to('Read', h.journal_entry_path(object.journal, object), class: 'btn btn-primary')
+        end
     end
   end
 end

@@ -18,8 +18,15 @@
 
   <div class="form-group">
     <%= f.label :body %>
-    <%= f.text_area :body, class: 'form-control', rows: 15 %>
+    <%= f.text_area :decrypted_body, class: 'form-control', rows: 15 %>
   </div>
+
+  <% unless @journal.public %>
+    <div class="form-group">
+      <%= f.label :password, 'Journal Password' %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+    <% end %>
 
   <div class="actions">
     <%= f.submit class: 'btn btn-success' %>
