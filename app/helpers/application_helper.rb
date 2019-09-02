@@ -1,12 +1,12 @@
 module ApplicationHelper
   def controller_stylesheet(opts = { media: :all })
-    if Rails.application.assets.find_asset("#{controller_name}.css")
+    if asset_exists?(Rails.root.join("app/assets/stylesheets/#{controller_name}.css"))
       stylesheet_link_tag(controller_name, opts)
     end
   end
 
   def controller_javascript(opts = {})
-    if Rails.application.assets.find_asset("#{controller_name}.js")
+    if asset_exists?(Rails.root.join("app/assets/javascripts/#{controller_name}.js"))
       javascript_include_tag(controller_name, opts)
     end
   end
@@ -26,5 +26,13 @@ module ApplicationHelper
         alert: 'danger',
         notice: 'success'
       }
+    end
+
+    def asset_exists?(path)
+      if Rails.configuration.assets.compile
+        Rails.application.precompiled_assets.include?(path)
+      else
+        Rails.application.assets_manifest.assets[path].present?
+      end
     end
 end
