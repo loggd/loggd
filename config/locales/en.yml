@@ -37,10 +37,9 @@ en:
   home:
     tagline: a privacy-first journal
     lead: |
-      Who wants to digitally journal on the web, but also know that only you can read the journals?
-      Yes, even we can't ready your entries. And for free? No way. Loggd offers AES-256 encryption for all
-      journals, so you can write where ever you are and not worry about your data. We're also open source, so you
-      can verify this yourself.
+      A journal that only you can read? Say goodbye to those flimsy locks. Loggd offers AES-256 encryption for all
+      journals, so you can write whatever you want and not worry that someone will see it (yes, even we can't see).
+      We're open source, so you can check for yourself.
     offer: What do we offer?
     privacy: Privacy
     privacy_tagline: |
