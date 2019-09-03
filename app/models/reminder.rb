@@ -13,6 +13,8 @@ class Reminder < ApplicationRecord
     :saturday
   ]
 
+  scope :today, -> { where('day = ?', Time.zone.now.wday) }
+
   def self.ready_to_send
     time = Time.zone.now
     where('day = ? AND hour < ? AND minute < ?', time.wday, time.hour, time.min)

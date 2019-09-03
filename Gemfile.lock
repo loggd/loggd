@@ -78,6 +78,7 @@ GEM
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
     concurrent-ruby (1.1.5)
+    connection_pool (2.2.2)
     crass (1.0.4)
     devise (4.7.0)
       bcrypt (~> 3.0)
@@ -139,6 +140,8 @@ GEM
     public_suffix (3.1.1)
     puma (3.12.1)
     rack (2.0.7)
+    rack-protection (2.0.7)
+      rack
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -171,6 +174,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redis (4.1.2)
     regexp_parser (1.6.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -218,6 +222,11 @@ GEM
     selenium-webdriver (3.142.3)
       childprocess (>= 0.5, < 2.0)
       rubyzip (~> 1.2, >= 1.2.2)
+    sidekiq (6.0.0)
+      connection_pool (>= 2.2.2)
+      rack (>= 2.0.0)
+      rack-protection (>= 2.0.0)
+      redis (>= 4.1.0)
     spring (2.1.0)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -277,9 +286,11 @@ DEPENDENCIES
   pg (>= 0.18, < 2.0)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  redis (~> 4.1, >= 4.1.2)
   rspec-rails (~> 3.8, >= 3.8.2)
   sass-rails (~> 5.0)
   selenium-webdriver
+  sidekiq (~> 6.0)
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)
