@@ -1,0 +1,6 @@
+<h1>Editing Reminder</h1>
+
+<%= render 'form', reminder: @reminder %>
+
+<%= link_to 'Show', journal_reminder_path(@journal, @reminder) %> |
+<%= link_to 'Back', journal_reminders_path %>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_02_170038) do
+ActiveRecord::Schema.define(version: 2019_09_03_023340) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 2019_09_02_170038) do
     t.boolean "public", default: false
     t.string "password_digest"
     t.index ["user_id"], name: "index_journals_on_user_id"
+  end
+
+  create_table "journals_reminders", id: false, force: :cascade do |t|
+    t.bigint "journal_id", null: false
+    t.bigint "reminder_id", null: false
+  end
+
+  create_table "reminders", force: :cascade do |t|
+    t.integer "day"
+    t.time "local_time"
+    t.string "time_zone"
+    t.integer "hour"
+    t.integer "minute"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["day", "hour", "minute"], name: "index_reminders_on_day_and_hour_and_minute"
   end
 
   create_table "users", force: :cascade do |t|

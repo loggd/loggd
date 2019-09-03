@@ -48,3 +48,7 @@ en:
     simplicity_tagline: |
       There are no frills here. No markdown, no convoluted journal entry management. Secure your journals. Write.
     call_to_action: Get started creating journals that only you can manage.
+
+  reminder_mailer:
+    remind:
+      subject: Write something great today

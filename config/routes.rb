@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root 'home#show'
   devise_for :users
   resources :journals do
+    resources :reminders
     resources :entries do
       member do
         post :decrypted

@@ -1,0 +1,22 @@
+<h1>Reminders</h1>
+
+<%= link_to 'New Reminder', new_journal_reminder_path(@journal, @reminder) %>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Day</th>
+    <th>Time</th>
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <% @journal.reminders.each do |reminder| %>
+    <tr>
+      <td><%= reminder.day %></td>
+      <td><%= reminder.local_time.strftime('%H:%S') %></td>
+      <td><%= link_to 'Delete', journal_reminder_path(@journal, reminder), method: :delete %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>

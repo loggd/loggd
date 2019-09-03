@@ -1,6 +1,7 @@
 <% if can? :manage, @journal %>
   <%= link_to 'Edit', edit_journal_path(@journal) %> |
-  <%= link_to 'Back', journals_path %>
+  <%= link_to 'Back', journals_path %> |
+  <%= link_to 'Reminders', journal_reminders_path(@journal) %>
 <% end %>
 
 <h1><%= @journal.name %></h1>
