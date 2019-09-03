@@ -12,20 +12,26 @@ class Entry < ApplicationRecord
   end
 
   def decrypt!(pass)
-    self.decrypted_body = Crypto::Decryptor.new(decryption_cipher, sha1(pass), iv, body).call
+    self.decrypted_body = Crypto::Decryptor.new(decipher, sha1(pass), iv, body).call
   end
 
   def encrypt!(pass)
-    encryptor = Crypto::Encryptor.new(encryption_cipher, sha1(pass), body)
+    encryptor = Crypto::Encryptor.new(cipher, sha1(pass), body)
     self.body = encryptor.call
     self.iv = encryptor.iv
   end
 
   private
 
-    delegate :sha1, :decryption_cipher, :encryption_cipher, to: :cipher_builder
+    def decipher
+      Crypto::DecipherBuilder.new.call
+    end
 
-    def cipher_builder
-      Crypto::CipherBuilder.new(Rails.application.credentials[:signing_key])
+    def cipher
+      Crypto::CipherBuilder.new.call
+    end
+
+    def sha1(pass)
+      Crypto::SHA1Builder.new(pass, Rails.application.credentials[:signing_key]).call
     end
 end
