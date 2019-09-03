@@ -1,6 +1,6 @@
 class Journal < ApplicationRecord
   has_secure_password validations: false
-  validates_presence_of :password, unless: :public?
+  validates_presence_of :password, unless: :public?, on: :create
 
   belongs_to :user
   has_many :entries
