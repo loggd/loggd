@@ -13,9 +13,9 @@ class Reminder < ApplicationRecord
     :saturday
   ]
 
-  def ready_to_send
+  def self.ready_to_send
     time = Time.zone.now
-    where('day = ? AND hour < ? AND minute < ?', time.day, time.hour, time.min)
+    where('day = ? AND hour < ? AND minute < ?', time.wday, time.hour, time.min)
   end
 
   private
