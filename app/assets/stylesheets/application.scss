@@ -11,10 +11,10 @@ section#navbar {
   margin-bottom: 1rem;
 }
 
-section#wrapper {
-  min-height: 100%;
-  margin-bottom: -50px;
+section#content {
+  min-height: calc(100vh - 50px - 56px - 20px);
 }
+
 
 #footer {
   height: 50px;

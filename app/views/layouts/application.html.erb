@@ -17,12 +17,10 @@
   </head>
 
   <body>
-    <section id="wrapper">
-      <%= render 'layouts/navbar' %>
-      <section class="container" id="content">
-        <%= render 'layouts/alerts' %>
-        <%= yield %>
-      </section>
+    <%= render 'layouts/navbar' %>
+    <section class="container" id="content">
+      <%= render 'layouts/alerts' %>
+      <%= yield %>
     </section>
     <%= render 'layouts/footer' %>
   </body>
