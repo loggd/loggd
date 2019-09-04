@@ -10,11 +10,11 @@
   <p><%= t('home.simplicity_tagline') %></p>
   <hr class="my-4">
   <p><%= t('home.call_to_action') %></p>
-  <a href="<%= new_user_registration_path %>" class="btn btn-info btn-lg" role="button">Sign up</a>
+  <a href="<%= new_user_registration_path %>" class="btn btn-info btn-lg" role="button"><%= t('sign_up') %></a>
 </div>
 
 <% if @journals.any? %>
-  <h1 class="text-sm">Check out some public journals</h1>
+  <h1 class="text-sm"><%= t('home.public_journals') %></h1>
   <div class="card-columns">
     <% @journals.each do |journal| %>
       <%= journal.public_card_view %>

@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <% if user_signed_in? %>
           <li class="nav-item">
-            <a class="nav-link <%= 'active' if @page_tab == 'journals' %>" href="<%= journals_path %>">Journals</a>
+            <a class="nav-link <%= 'active' if @page_tab == 'journals' %>" href="<%= journals_path %>"><%= t('journals') %></a>
           </li>
         <% end %>
       </ul>

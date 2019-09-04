@@ -34,6 +34,7 @@ en:
   logout: Log out
   login: Log in
   sign_up: Sign up
+  journals: Journals
   home:
     tagline: a privacy-first journal
     lead: |
@@ -48,6 +49,7 @@ en:
     simplicity_tagline: |
       There are no frills here. No markdown, no convoluted journal entry management. Secure your journals. Write.
     call_to_action: Get started creating journals that only you can manage.
+    public_journals: Check out some public journals
 
   reminder_mailer:
     remind:
