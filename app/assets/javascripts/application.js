@@ -17,4 +17,5 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require activestorage
-//= require_tree .
+//= require cable
+//= require init_ckeditor
