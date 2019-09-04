@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'home#show'
+
   devise_for :users
+
   resources :journals do
     resources :reminders
     resources :entries do
@@ -15,5 +17,9 @@ Rails.application.routes.draw do
       get :locked
     end
   end
+
+  get '/service-worker.js', to: 'service_worker#service_worker'
+  get '/manifest.json', to: 'service_worker#manifest'
+
   mount Ckeditor::Engine => '/ckeditor'
 end

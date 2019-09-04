@@ -14,7 +14,7 @@ class JournalDecorator < Draper::Decorator
 
     def card_view_for(home_page:)
       h.content_tag :div, class: "card #{'border-danger' if home_page && object.public}" do
-        h.image_tag('composition_book_cover.jpeg', class: 'img-fluid') +
+        h.image_tag('composition_book_cover.jpeg', class: 'img-fluid', alt: 'composition book cover') +
           h.content_tag(:div, class: 'card-body') do
             h.content_tag(:h5, object.name, class: 'card-title') +
               h.content_tag(:p, object.description, class: 'card-text text-truncate') +

@@ -19,3 +19,4 @@
 //= require activestorage
 //= require cable
 //= require init_ckeditor
+//= require serviceworker-companion
