@@ -15,4 +15,5 @@ Rails.application.routes.draw do
       get :locked
     end
   end
+  mount Ckeditor::Engine => '/ckeditor'
 end

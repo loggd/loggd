@@ -11,9 +11,8 @@
 
 <p>
   <% if @entry.journal.public %>
-    <%= @entry.body %>
+    <%= @entry.body.html_safe %>
   <% else %>
-    asdf
-    <%= @entry.decrypted_body %>
+    <%= @entry.decrypted_body.html_safe %>
   <% end %>
 </p>

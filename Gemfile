@@ -4,13 +4,16 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.5'
 gem 'rails', '~> 5.2.3'
 
+gem 'aws-sdk', '~> 3'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
+gem 'ckeditor', github: 'galetahub/ckeditor'
 gem 'devise', '~> 4.7'
 gem 'draper', '~> 3.1'
 gem 'font-awesome-rails'
+gem 'mini_magick'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'jbuilder', '~> 2.5'
