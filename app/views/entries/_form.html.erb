@@ -1,5 +1,3 @@
-<%= javascript_include_tag Ckeditor.cdn_url %>
-
 <%= form_with(model: entry, local: true, url: [@journal, entry]) do |f| %>
   <% if entry.errors.any? %>
     <div id="error_explanation">
@@ -19,7 +17,7 @@
   </div>
 
   <div class="form-group">
-    <%= f.cktext_area :body, class: 'form-control' %>
+    <%= f.cktext_area :body, class: 'form-control js-become-rich-text-editor' %>
   </div>
 
   <% unless @journal.public %>

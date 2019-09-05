@@ -6,7 +6,7 @@ function ready() {
 }
 
 $(document).ready(ready);
-$(document).on('page:load', ready);
+$(document).bind('turbolinks:load', ready);
 $(document).bind('turbolinks:before-cache', function() {
     var name, results;
     if (typeof CKEDITOR === 'undefined') {
@@ -19,13 +19,4 @@ $(document).bind('turbolinks:before-cache', function() {
         }
     }
     return results;
-});
-
-$(document).bind('turbolinks:load', function() {
-    if (typeof CKEDITOR === 'undefined') {
-        return;
-    }
-    return $('.js-ckeditor').each(function() {
-        return CKEDITOR.replace($(this).attr('id'));
-    });
 });
