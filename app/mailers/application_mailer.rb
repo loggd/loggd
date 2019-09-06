@@ -1,4 +1,4 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'support@loggd.net'
+  default from: '"Loggd" <support@loggd.net>'
   layout 'mailer'
 end
