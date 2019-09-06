@@ -1,4 +1,5 @@
-# Loggd
+![Loggd](./app/assets/images/logo/logo_transparent_background.png)
+===
 An open source, secure, journal.
 
 ## Dependencies
