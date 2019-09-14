@@ -9,10 +9,12 @@
   <p class="text-muted">Edited <%= distance_of_time_in_words(@entry.updated_at, Time.zone.now) %> ago</p>
 <% end %>
 
-<p>
-  <% if @entry.journal.public %>
+<% if @entry.journal.public %>
+  <div class="content-limiter">
     <%= @entry.body.html_safe %>
-  <% else %>
+  </div>
+<% else %>
+  <div class="content-limiter">
     <%= @entry.decrypted_body.html_safe %>
-  <% end %>
-</p>
+  </div>
+<% end %>
