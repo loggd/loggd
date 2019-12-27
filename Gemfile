@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.3', '>= 4.3.1'
 gem 'cancancan', '~> 3.0', '>= 3.0.1'
 gem 'ckeditor', github: 'galetahub/ckeditor'
-gem 'devise', '~> 4.7'
+gem 'devise', '>= 4.7.1'
 gem 'draper', '~> 3.1'
 gem 'font-awesome-rails'
 gem 'mini_magick'
